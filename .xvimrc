@@ -1,0 +1,17 @@
+nmap ; :
+nmap : ;
+noremap q; q:
+
+" インクリメンタルサーチを有効にする
+set incsearch
+
+" ワイルドメニュー
+set wildmenu
+
+"window間移動系
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+
