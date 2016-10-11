@@ -3,10 +3,10 @@
 "---------------------------
 " bundleで管理するディレクトリを指定
 set runtimepath+=~/.vim/bundle/neobundle.vim/
- 
+
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
- 
+
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 " コメントアウト
@@ -17,16 +17,30 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'evidens/vim-twig'
 " ディレクトリをツリー表示
 NeoBundle 'scrooloose/nerdtree'
+" 末尾の全/半角の空白文字をハイライト
+" :FixWhitespace で全削除できる
+NeoBundle 'bronson/vim-trailing-whitespace'
+" インデントの可視化
+NeoBundle 'Yggdroot/indentLine'
+
+if has('lua') " lua機能が有効になっている場合
+  " コードの自動補完
+  NeoBundle 'Shougo/neocomplete.vim'
+  " スニペットの補完機能
+  NeoBundle "Shougo/neosnippet"
+  " スニペット集
+  NeoBundle 'Shougo/neosnippet-snippets'
+endif
 
 call neobundle#end()
- 
+
 " Required:
 filetype plugin indent on
- 
+
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
- 
+
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
@@ -41,6 +55,8 @@ set incsearch
 set number
 " 括弧の対応をハイライト
 set showmatch
+" タグ間ジャンプ
+source $VIMRUNTIME/macros/matchit.vim
 " ハイライトまでの時間
 set matchtime=0
 " 自動インデント
@@ -112,6 +128,31 @@ nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
 " ----- here -----
 
+
 " ----- nerdtree ----
 "  Ctr-eで表示
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+
+"----------------------------------------------------------
+" neocomplete・neosnippetの設定
+"----------------------------------------------------------
+if neobundle#is_installed('neocomplete.vim')
+    " Vim起動時にneocompleteを有効にする
+    let g:neocomplete#enable_at_startup = 1
+    " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+    let g:neocomplete#enable_smart_case = 1
+    " 3文字以上の単語に対して補完を有効にする
+    let g:neocomplete#min_keyword_length = 3
+    " 区切り文字まで補完する
+    let g:neocomplete#enable_auto_delimiter = 1
+    " 1文字目の入力から補完のポップアップを表示
+    let g:neocomplete#auto_completion_start_length = 1
+    " バックスペースで補完のポップアップを閉じる
+    inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+
+    " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
+    imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+    " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
+    imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+endif
