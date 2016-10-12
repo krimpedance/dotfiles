@@ -17,4 +17,4 @@
   cm = commit -m
   pu = push
 [http]
-	proxy = proxy.pluto.ai.kyutech.ac.jp:8080
+	; proxy = proxy.pluto.ai.kyutech.ac.jp:8080
