@@ -12,5 +12,5 @@ fi
 
 if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
   echo 'clone'
-  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi

@@ -16,3 +16,5 @@
   ad = add .
   cm = commit -m
   pu = push
+[http]
+	proxy = proxy.pluto.ai.kyutech.ac.jp:8080
