@@ -4,6 +4,7 @@
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.xvimrc ~/.xvimrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.inputrc ~/.inputrc
 
 # Install NeoBundle
 if [ ! -d ~/.vim/bundle ]; then
