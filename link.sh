@@ -29,11 +29,11 @@ echo 'NeoBundle: installed!'
 TLFrameworkURL=`grep "# For Git" ~/.bashrc`
 if [ -z "$TLFrameworkURL" ]; then
   echo 'Install bash extension for Git...'
-  mkdir -p /usr/local/etc/bash_completion.d/
+  sudo mkdir -p /usr/local/etc/bash_completion.d/
   curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh || errorHandling
   curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash || errorHandling
-  mv git-prompt.sh /usr/local/etc/bash_completion.d/.
-  mv git-completion.bash /usr/local/etc/bash_completion.d/.
+  sudo mv git-prompt.sh /usr/local/etc/bash_completion.d/.
+  sudo mv git-completion.bash /usr/local/etc/bash_completion.d/.
 
   echo '' >> $HOME/.bashrc
   echo '# For Git' >> $HOME/.bashrc
