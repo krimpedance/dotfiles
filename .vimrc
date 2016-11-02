@@ -22,6 +22,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bronson/vim-trailing-whitespace'
 " インデントの可視化
 NeoBundle 'Yggdroot/indentLine'
+" Slimをハイライト
+NeoBundle 'slim-template/vim-slim'
 
 if has('lua') " lua機能が有効になっている場合
   " コードの自動補完
