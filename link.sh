@@ -12,14 +12,14 @@ if [ $# -ne 2 ]; then
 fi
 
 # Git user setting
-sed -e "s/USER_NAME/$1/" -e "s/USER_EMAIL/$2/" .gitconfig > .gitconfig_tmp
-mv .gitconfig_tmp .gitconfig
+sed -e "s/USER_NAME/$1/" -e "s/USER_EMAIL/$2/" .gitconfig > .gitconfig_local
 
 # link
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.xvimrc ~/.xvimrc
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.inputrc ~/.inputrc
+ln -sf .vimrc ~/.vimrc
+ln -sf .xvimrc ~/.xvimrc
+# ln -sf .gitconfig ~/.gitconfig
+mv .gitconfig_local ~/.gitconfig
+ln -sf .inputrc ~/.inputrc
 echo 'links has been completed!'
 
 # Install NeoBundle
