@@ -3,8 +3,8 @@
 	quotepath = false
 
 [user]
-	name = krimpedance
-	email = krimpedance@gmail.com
+	name = USER_NAME
+	email = USER_EMAIL
 [color]
 	ui = 1
 
@@ -16,5 +16,3 @@
   ad = add .
   cm = commit -m
   cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
-[http]
-  ; proxy = proxy.pluto.ai.kyutech.ac.jp:8080

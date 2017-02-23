@@ -5,6 +5,15 @@ function errorHandling() {
   exit 1;
 }
 
+if [ $# -ne 2 ]; then
+  echo "実行するには2個の引数が必要です." 1>&2
+  echo "$ ./link.sh USER_NAME USER_EMAIL" 1>&2
+  errorHandling
+fi
+
+# Git user setting
+sed -e "s/USER_NAME/$1/" -e "s/USER_EMAIL/$2/" .gitconfig > .gitconfig_tmp
+mv .gitconfig_tmp .gitconfig
 
 # link
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -26,8 +35,8 @@ fi
 echo 'NeoBundle: installed!'
 
 # Bash extension for Git
-TLFrameworkURL=`grep "# For Git" ~/.bashrc`
-if [ -z "$TLFrameworkURL" ]; then
+GitSetting=`grep "# For Git" ~/.bashrc`
+if [ -z "$GitSetting" ]; then
   echo 'Install bash extension for Git...'
   sudo mkdir -p /usr/local/etc/bash_completion.d/
   curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh || errorHandling
