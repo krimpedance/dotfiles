@@ -15,11 +15,11 @@ fi
 sed -e "s/USER_NAME/$1/" -e "s/USER_EMAIL/$2/" .gitconfig > .gitconfig_local
 
 # link
-ln -sf .vimrc ~/.vimrc
-ln -sf .xvimrc ~/.xvimrc
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.xvimrc ~/.xvimrc
 # ln -sf .gitconfig ~/.gitconfig
-mv .gitconfig_local ~/.gitconfig
-ln -sf .inputrc ~/.inputrc
+mv ~/dotfiles/.gitconfig_local ~/.gitconfig
+ln -sf ~/dotfiles/.inputrc ~/.inputrc
 echo 'links has been completed!'
 
 # Install NeoBundle
