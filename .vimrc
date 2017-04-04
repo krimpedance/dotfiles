@@ -24,8 +24,6 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Yggdroot/indentLine'
 " Slimをハイライト
 NeoBundle 'slim-template/vim-slim'
-" Markdownをハイライト
-NeoBundle 'plasticboy/vim-markdown'
 " :PrevimOpen でMarkdownをブラウザプレビュー
 NeoBundle 'tyru/open-browser.vim'
 " 書き込みした時にプレビューを更新
@@ -167,4 +165,4 @@ endif
 
 " ----- vim-markdown ----
 " .mdファイルをMarkdownとして認識させる
-au BufRead,BufNewFile *.md set filetype=markdown
+" au BufRead,BufNewFile *.md set filetype=markdown
