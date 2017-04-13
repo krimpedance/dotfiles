@@ -11,16 +11,16 @@ if [ $# -ne 2 ]; then
   errorHandling
 fi
 
-# Git user setting
-sed -e "s/USER_NAME/$1/" -e "s/USER_EMAIL/$2/" .gitconfig > .gitconfig_tmp
-mv .gitconfig_tmp .gitconfig
-
 # link
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.xvimrc ~/.xvimrc
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+# cp ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.inputrc ~/.inputrc
 echo 'links has been completed!'
+
+# Git user setting
+sed -e "s/USER_NAME/$1/" -e "s/USER_EMAIL/$2/" .gitconfig > .gitconfig_tmp
+mv .gitconfig_tmp ~/.gitconfig
 
 # Install NeoBundle
 echo 'NeoBundle: installing ...'
