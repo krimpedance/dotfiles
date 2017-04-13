@@ -24,6 +24,10 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Yggdroot/indentLine'
 " Slimをハイライト
 NeoBundle 'slim-template/vim-slim'
+" :PrevimOpen でMarkdownをブラウザプレビュー
+NeoBundle 'tyru/open-browser.vim'
+" 書き込みした時にプレビューを更新
+NeoBundle 'kannokanno/previm'
 
 if has('lua') " lua機能が有効になっている場合
   " コードの自動補完
@@ -158,3 +162,7 @@ if neobundle#is_installed('neocomplete.vim')
     " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
+
+" ----- vim-markdown ----
+" .mdファイルをMarkdownとして認識させる
+" au BufRead,BufNewFile *.md set filetype=markdown
