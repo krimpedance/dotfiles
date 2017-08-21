@@ -28,6 +28,10 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tyru/open-browser.vim'
 " 書き込みした時にプレビューを更新
 NeoBundle 'kannokanno/previm'
+" CoffeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+" Vue.js
+NeoBundle 'posva/vim-vue'
 
 if has('lua') " lua機能が有効になっている場合
   " コードの自動補完
@@ -139,6 +143,13 @@ vmap ,, <Plug>NERDCommenterToggle
 "  Ctr-eで表示
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+" ----- vim-coffee-script ----
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデントを設定
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+" Ctrl-cで右ウィンドウにコンパイル結果を一時表示する
+nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
 
 "----------------------------------------------------------
 " neocomplete・neosnippetの設定
