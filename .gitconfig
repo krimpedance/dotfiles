@@ -13,6 +13,6 @@
   g = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   bh = branch
   co = checkout
-  ad = add .
+  ad = add -A
   cm = commit -m
   cpush = !git push origin `git rev-parse --abbrev-ref HEAD`

@@ -55,6 +55,8 @@ NeoBundleCheck
 " End Neobundle Settings.
 "-------------------------
 
+autocmd BufNewFile,BufRead *.vue set filetype=slim
+
 " エンコード
 set encoding=utf-8
 " ターミナル高速接続
@@ -174,6 +176,5 @@ if neobundle#is_installed('neocomplete.vim')
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
 
-" ----- vim-markdown ----
-" .mdファイルをMarkdownとして認識させる
-" au BufRead,BufNewFile *.md set filetype=markdown
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.jbuilder set ft=ruby
