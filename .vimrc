@@ -28,6 +28,10 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tyru/open-browser.vim'
 " 書き込みした時にプレビューを更新
 NeoBundle 'kannokanno/previm'
+" CoffeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+" Vue.js
+NeoBundle 'posva/vim-vue'
 
 if has('lua') " lua機能が有効になっている場合
   " コードの自動補完
@@ -50,6 +54,8 @@ NeoBundleCheck
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
+
+autocmd BufNewFile,BufRead *.vue set filetype=slim
 
 " エンコード
 set encoding=utf-8
@@ -139,6 +145,13 @@ vmap ,, <Plug>NERDCommenterToggle
 "  Ctr-eで表示
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+" ----- vim-coffee-script ----
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデントを設定
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+" Ctrl-cで右ウィンドウにコンパイル結果を一時表示する
+nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
 
 "----------------------------------------------------------
 " neocomplete・neosnippetの設定
@@ -163,6 +176,5 @@ if neobundle#is_installed('neocomplete.vim')
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
 
-" ----- vim-markdown ----
-" .mdファイルをMarkdownとして認識させる
-" au BufRead,BufNewFile *.md set filetype=markdown
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.jbuilder set ft=ruby
