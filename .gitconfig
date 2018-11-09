@@ -10,7 +10,7 @@
 
 [alias]
   st = status -sb
-  g = log --graph --all --pretty=format:'%Cred%h%Creset %Cgreen(%cd)%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+  g = log --graph --all --pretty=format:'%Cred%h%Creset %Cgreen(%cd%x08%x08%x08%x08%x08%x08%x08%x08%x08)%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
   bh = branch
   co = checkout
   ad = add -A
