@@ -15,4 +15,6 @@
   co = checkout
   ad = add -A
   cm = commit -m
+  pu = push
+  puo = push origin
   cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
