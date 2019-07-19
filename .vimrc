@@ -32,6 +32,8 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'kchmck/vim-coffee-script'
 " Vue.js
 NeoBundle 'posva/vim-vue'
+" EditorConfig
+NeoBundle 'editorconfig/editorconfig-vim'
 
 if has('lua') " lua機能が有効になっている場合
   " コードの自動補完

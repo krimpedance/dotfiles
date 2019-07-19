@@ -18,3 +18,4 @@
   pu = push
   puo = push origin
   cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
+  fdiff = diff --name-only
