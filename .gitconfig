@@ -5,6 +5,7 @@
 [user]
 	name = USER_NAME
 	email = USER_EMAIL
+
 [color]
 	ui = 1
 
@@ -12,10 +13,11 @@
   st = status -sb
   g = log --graph --all --pretty=format:'%Cred%h%Creset %Cgreen(%cd%x08%x08%x08%x08%x08%x08%x08%x08%x08)%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
   bh = branch
-  co = checkout
+  sw = switch
   ad = add -A
   cm = commit -m
   pu = push
   puo = push origin
   cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
   fdiff = diff --name-only
+  co = 'ｿﾝﾅｺﾏﾝﾄﾞﾅｲﾖ'
